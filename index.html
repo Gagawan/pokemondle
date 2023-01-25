@@ -1,0 +1,37 @@
+<html>
+
+    <h1>PokemonDle</h1>
+    <h2>guess : charizard</h2>
+
+    <input type="text" placeholder="Write a name" id="in">
+    <button type="button" onclick="getPoke();">Send</button>
+
+    <p>id : <span id="idCurrentPoke"></span></p>
+    <p>name : <span id="nameCurrentPoke"></span></p>
+    <p>type 1 : <span id="type1CurrentPoke"></span></p>
+    <p>type 2 : <span id="type2CurrentPoke"></span></p>
+    <p>egg groupe : <span id="eggGroupeCurrentPoke"></span></p>
+    <p>color : <span id="colorCurrentPoke"></span></p>
+</html>
+
+<script>
+
+    function getPoke(pokeNumber) {
+        pokeNumber = document.getElementById("in").value; 
+        const apiPoke = fetch('https://pokeapi.co/api/v2/pokemon/'+pokeNumber)
+        .then((response) => response.json())
+        .then((data) => {
+            document.getElementById('idCurrentPoke').innerHTML = data.id; 
+            document.getElementById('nameCurrentPoke').innerHTML = data.name; 
+            document.getElementById('type1CurrentPoke').innerHTML = data.types[0].type.name; 
+            document.getElementById('type2CurrentPoke').innerHTML = data.types[1].type.name; 
+        });
+        const api = fetch('https://pokeapi.co/api/v2/pokemon-species/'+pokeNumber)
+        .then((response) => response.json())
+        .then((data) => {
+            document.getElementById('eggGroupeCurrentPoke').innerHTML = data.egg_groups[0].name;
+            document.getElementById('colorCurrentPoke').innerHTML = data.color.name;  
+        });
+    }
+
+</script>
