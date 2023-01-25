@@ -1,37 +1,54 @@
+<!DOCTYPE html>
 <html>
 
-    <h1>PokemonDle</h1>
-    <h2>guess : charizard</h2>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Pokemondle</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
 
-    <input type="text" placeholder="Write a name" id="in">
-    <button type="button" onclick="getPoke();">Send</button>
+<div class="container-fluid d-flex row justify-content-center"> <!-- Titre-->
+    <img src="Images/logo.png" class="img-fluid w-50 p-3" alt="">
+</div>
 
-    <p>id : <span id="idCurrentPoke"></span></p>
-    <p>name : <span id="nameCurrentPoke"></span></p>
-    <p>type 1 : <span id="type1CurrentPoke"></span></p>
-    <p>type 2 : <span id="type2CurrentPoke"></span></p>
-    <p>egg groupe : <span id="eggGroupeCurrentPoke"></span></p>
-    <p>color : <span id="colorCurrentPoke"></span></p>
+<div class="container-fluid d-flex row justify-content-center"> <!-- Input le pokemon guess -->
+    <input type="text" class="w-25" placeholder="Write a name" id="in">
+    <button type="button" class="w-25" onclick="getPoke();">Send</button>
+</div>
+
+<div class="container-fluid d-flex justify-content-around" style="padding-top: 5%;"> <!-- Info sur le guess en cours -->
+        <div>
+            <h5 class="text-decoration-underline">sprite</h5>
+            <span id="spriteCurrentPoke"></span>
+        </div>
+        <div>
+            <h5 class="text-decoration-underline">Id</h5>
+            <span id="idCurrentPoke"></span>
+        </div>
+        <div>
+            <h5 class="text-decoration-underline">Name</h5>
+            <span id="nameCurrentPoke"></span>
+        </div>
+        <div>
+            <h5 class="text-decoration-underline">Type 1</h5>
+            <span id="type1CurrentPoke"></span>
+        </div>
+        <div>
+            <h5 class="text-decoration-underline">Type 2</h5>
+            <span id="type2CurrentPoke"></span>
+        </div>
+        <div>
+            <h5 class="text-decoration-underline">Egg Group</h5>
+            <span id="eggGroupeCurrentPoke"></span>
+        </div>
+        <div>
+            <h5 class="text-decoration-underline">Main Color</h5>
+            <span id="colorCurrentPoke"></span>
+        </div>
+</div>
+
 </html>
 
-<script>
-
-    function getPoke(pokeNumber) {
-        pokeNumber = document.getElementById("in").value; 
-        const apiPoke = fetch('https://pokeapi.co/api/v2/pokemon/'+pokeNumber)
-        .then((response) => response.json())
-        .then((data) => {
-            document.getElementById('idCurrentPoke').innerHTML = data.id; 
-            document.getElementById('nameCurrentPoke').innerHTML = data.name; 
-            document.getElementById('type1CurrentPoke').innerHTML = data.types[0].type.name; 
-            document.getElementById('type2CurrentPoke').innerHTML = data.types[1].type.name; 
-        });
-        const api = fetch('https://pokeapi.co/api/v2/pokemon-species/'+pokeNumber)
-        .then((response) => response.json())
-        .then((data) => {
-            document.getElementById('eggGroupeCurrentPoke').innerHTML = data.egg_groups[0].name;
-            document.getElementById('colorCurrentPoke').innerHTML = data.color.name;  
-        });
-    }
-
-</script>
+<script src="script.js"></script>
