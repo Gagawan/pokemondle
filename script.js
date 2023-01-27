@@ -22,9 +22,9 @@ function getPoke(pokeNumber) {
     fetch('https://pokeapi.co/api/v2/pokemon/'+pokeNumber)
     .then((response) => response.json())
     .then((data) => {
-        document.getElementById('spriteCurrentPoke').innerHTML += 
+        document.body.innerHTML +=
         '<div class="card d-flex justify-content-center align-items-center" style="width: 7rem; height: 7rem; margin-top: 3%;"><img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/'+pokeNumber+'.png" class="img-fluid p-3" alt=""></div>';
-        choix('idOriginalPoke', 'idCurrentPoke', data.name)
+        choix("idOriginalPoke", "idCurrentPoke", data.id)
         choix('nameOriginalPoke', 'nameCurrentPoke', data.name)
         choix('type1OriginalPoke', 'type1CurrentPoke', data.types[0].type.name)
         choix('type2OriginalPoke', 'type2CurrentPoke', data.types[1].type.name)
@@ -39,11 +39,17 @@ function getPoke(pokeNumber) {
 }
 
 function choix(nomIdO, nomIdC, data){
+    var div = document.createElement("div");
+    var content = document.createTextNode(data);
+    div.appendChild(content);
     if(document.getElementById(nomIdO) == document.getElementById(nomIdC)){
-        document.getElementById(nomIdC).innerHTML += 
-        '<div class="card d-flex justify-content-center align-items-center" style="width: 7rem; height: 7rem; background-color: green; margin-top: 3%;"><p>'+data+'</p></div>'; 
+        div.classList.add("card", "d-flex", "justify-content-center", "align-items-center", "bg-success", "text-white", "text-center");
+        div.style.width = "7rem";
+        div.style.height = "7rem";
     } else {
-        document.getElementById(nomIdC).innerHTML += 
-        '<div class="card d-flex justify-content-center align-items-center" style="width: 7rem; height: 7rem; background-color: red; margin-top: 3%;"><p>'+data+'</p></div>';
-    }
+        div.classList.add("card", "d-flex", "justify-content-center", "align-items-center", "bg-danger", "text-white", "text-center");
+        div.style.width = "7rem";
+        div.style.height = "7rem";
+    }   
+    document.body.insertBefore(div, document.getElementById("node"));
 }
