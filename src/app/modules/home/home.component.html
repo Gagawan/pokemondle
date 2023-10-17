@@ -1,17 +1,19 @@
 <div id="content">
+
     <div id="header">
-        <img src="../../../assets/title.png" alt="">
-        <p>Trouve le pokemon !</p>
-
-        <div id="searchBar">
-
-            <input id="input" type="text" list="names"/>  
-            <datalist id="names">
-                <option *ngFor="let name of names">{{name}}</option>
-            </datalist>
-
-            <a class="button" (click)="guess()">Send</a>
+        <img id="logo" src="../../../assets/logo.gif" alt="logo">
+        <div>
+            <h1 style="font-size: 2rem;">Pokemondle</h1>
+            <p>Trouve le pokemon !</p>
+            <div id="searchBar">
+                <input id="input" type="text" list="names"/>  
+                <datalist id="names">
+                    <option *ngFor="let name of names">{{name}}</option>
+                </datalist>
+            </div>
+        <a class="button" (click)="guess()">Send</a>
         </div>
+        <img id="logo" src="../../../assets/logo.gif" alt="logo">
     </div>
 
     <div id="body">
@@ -65,10 +67,5 @@
         </div>
 
     </div>
-
-
-
-
-
 
 </div>
