@@ -143,15 +143,14 @@ export class HomeComponent {
     // Style
     p.textContent = pokeValue;
     if (value == true) {
-      div.style.backgroundColor = "green";
+      div.style.backgroundColor = "#141E46";
     } else {
-      div.style.backgroundColor = "red";
+      div.style.backgroundColor = "#C70039";
     }
 
     div.style.width = "4.5rem"; div.style.height = "4.5rem"; div.style.marginBottom = "1.5rem";
     div.style.boxShadow = "0 0 0.2rem black"; div.style.borderRadius = "0.2rem"; div.style.fontSize = "0.7rem";
-    div.style.textAlign = "center"; div.style.wordWrap = "break-word";
-    
+    div.style.textAlign = "center"; div.style.wordWrap = "break-word"; div.style.color = "white";
     div.appendChild(p);
     if (element) {
       element.insertBefore(div, element.firstChild);
