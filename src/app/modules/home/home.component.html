@@ -1,0 +1,74 @@
+<div id="content">
+    <div id="header">
+        <img src="../../../assets/title.png" alt="">
+        <p>Trouve le pokemon !</p>
+
+        <div id="searchBar">
+
+            <input id="input" type="text" list="names"/>  
+            <datalist id="names">
+                <option *ngFor="let name of names">{{name}}</option>
+            </datalist>
+
+            <a class="button" (click)="guess()">Send</a>
+        </div>
+    </div>
+
+    <div id="body">
+
+        <div>
+            <p>sprite</p>
+            <div id="Sprite">
+            </div>
+        </div>
+
+        <div>
+            <p>Generation</p>
+            <div id="Gen">
+            </div>
+        </div>
+
+        <div>
+            <p>type n°1</p>
+            <div id="type1">
+            </div>
+        </div>
+
+        <div>
+            <p>type n°2</p>
+            <div id="type2">
+            </div>
+        </div>
+
+        <div>
+            <p>talent</p>
+            <div id="Talent">
+            </div>
+        </div>
+
+        <div>
+            <p>PreEvolution</p>
+            <div id="Pre">
+            </div>
+        </div>
+
+        <div>
+            <p>Evolution</p>
+            <div id="Next">
+            </div>
+        </div>
+
+        <div>
+            <p>mega</p>
+            <div id="Mega">
+            </div>
+        </div>
+
+    </div>
+
+
+
+
+
+
+</div>
